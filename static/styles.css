@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+
+body {
+    background-image: url(/static/background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    color: #212529;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+    overflow: overlay;
+}
+
+.art {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: #000;
+    padding: 5px;
+    font-size: 7.5pt;
+    line-height: 0pt;
+    text-align: center;
+    font-family: 'Courier';
+    color: #fff;
+}
+
+.align button {
+    margin: 19px;
+    float: left;
+}
+
+.align {
+    display: flex;
+    justify-content: center;
+}
+
+.header h4 {
+    color: rgb(207, 207, 207);
+    font-size: 17px;
+}
+
+.header {
+    background-color: rgba(19, 19, 19, 0.3);
+    color: #fff;
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+    text-align: center;
+    width: 95%;
+    border-radius: 0 0 10px 10px;
+    margin: auto;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+.container {
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 15px;
+}
+
+.section {
+    width: 95%;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 0.5rem 2rem 1rem 2rem;
+}
+
+.section:hover {
+    background-color: rgba(19, 19, 19, 0.25);
+    transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.section h2 {
+    font-family: 'Archivo Black', sans-serif;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: black;
+}
+
+.section p {
+    font-family: 'Lato', sans-serif;
+}
+
+.orange {
+    color: orange;
+}
+
+#file {
+  appearance: none;
+  background-color: #FAFBFC;
+  border-radius: 6px;
+  color: #24292E;
+  cursor: pointer;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 6px 16px;
+  transition: background-color 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+
+#file:hover {
+  background-color: rgb(219,219,219);
+  text-decoration: none;
+}
+
+#file:focus {
+  outline: 1px transparent;
+}
+
+#file:-webkit-details-marker {
+  display: none;
+}
+
+.button {
+  align-items: center;
+  background-color: #000;
+  border: 2px solid #111;
+  border-radius: 7px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  height: 40px;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  user-select: none;
+}
+
+input[type=radio] {
+    cursor: pointer;
+}
+
+.end {
+    margin-bottom: 29px;
+}

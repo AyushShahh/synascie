@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Generated Art
+{% endblock %}
+
+{% block main %}
+    <div class="art">
+        {% for line in ascii %}
+            <pre>{{ line }}</pre>
+        {% endfor %}
+    </div>
+    <div class="align">
+        <form action="/invascii" method="post">
+            <button type="submit" class="button">Original</button>
+        </form>
+        <button class="button" onclick="location.href = '/'">Homepage</button>
+    </div>
+{% endblock %}
