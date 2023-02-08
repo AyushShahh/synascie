@@ -85,7 +85,7 @@ def index():
             return redirect("/error")
 
         # Open image, resize it, get its width and then convert to grayscale
-        image = open(filename)
+        image = open(os.path.join('/tmp/', filename))
         resized_image = resize(image, 150)
         img_width = width(resized_image)
         grayscale_img = grayscale(resized_image)
