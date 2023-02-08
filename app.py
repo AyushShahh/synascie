@@ -107,7 +107,7 @@ def index():
             ASCII_ART_INV.append(ascii_string_rev[i:i+img_width])
 
         # Delete image from server
-        os.remove(filename)
+        os.remove(os.path.join('/tmp/', filename))
 
         return redirect("/ascii")
 
