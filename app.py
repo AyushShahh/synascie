@@ -73,7 +73,7 @@ def index():
         # Save file on server
         elif file and allowed_file(file.filename):
             filename = file.filename
-            file.save(filename)
+            file.save(os.path.join('/tmp/', filename))
 
         # Get index of character set
         set = request.form.get("density")
