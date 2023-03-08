@@ -71,9 +71,9 @@ def index():
             return redirect("/error")
 
         # Save file on server
-        elif file and allowed_file(file.filename):
-            filename = file.filename
-            file.save(os.path.join('tmp/', filename))
+        # elif file and allowed_file(file.filename):
+        #     filename = file.filename
+        #     file.save(os.path.join('tmp/', filename))
 
         # Get index of character set
         set = request.form.get("density")
@@ -85,7 +85,7 @@ def index():
             return redirect("/error")
 
         # Open image, resize it, get its width and then convert to grayscale
-        image = open(os.path.join('tmp/', filename))
+        image = open(file)
         resized_image = resize(image, 150)
         img_width = width(resized_image)
         grayscale_img = grayscale(resized_image)
@@ -107,7 +107,7 @@ def index():
             ASCII_ART_INV.append(ascii_string_rev[i:i+img_width])
 
         # Delete image from server
-        os.remove(os.path.join('tmp/', filename))
+        # os.remove(os.path.join('tmp/', filename))
 
         return redirect("/ascii")
 
