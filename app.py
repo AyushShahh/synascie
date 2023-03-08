@@ -15,7 +15,7 @@ ASCII_ART_INV = []
 # List of character sets
 DENSITY = ["@Ñ#W$9876543210ab?c!+=;:_-,.           ", "Wwli:,.  ",
             "@&%QWNM0gB$#DR8mHXKAUbGOpV4d9h6PkqwSE2]ayjxY5Zoen[ult13If}C{iF|(7J)vTLs?z/*cr!+<>;=^,_:'-.`                  ",
-            "@%#*+=_:.  ", "$@B%8&WM#ahkbdpqwmZ0OQLCJUYXzocvunxrjft/\|()1{}[]?-_+~<>i!lI;:,*^`'.             ", "@#Oo*°.,  ",
+            "@%#*+=_:.  ", "$@B%8&WM#ahkbdpqwmZ0OQLCJUYXzocvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,*^`'.             ", "@#Oo*°.,  ",
             "¶@ØÆMåBNÊßÔR#8Q&mÃ0À$GXZA5ñk2S%±3Fz¢yÝCJf1t7ªLc¿+?(r/¤²!*;^:,'.`                       "]
 
 # Errors
@@ -73,7 +73,7 @@ def index():
         # Save file on server
         elif file and allowed_file(file.filename):
             filename = file.filename
-            file.save(os.path.join('/tmp/', filename))
+            file.save(os.path.join('tmp/', filename))
 
         # Get index of character set
         set = request.form.get("density")
@@ -85,7 +85,7 @@ def index():
             return redirect("/error")
 
         # Open image, resize it, get its width and then convert to grayscale
-        image = open(os.path.join('/tmp/', filename))
+        image = open(os.path.join('tmp/', filename))
         resized_image = resize(image, 150)
         img_width = width(resized_image)
         grayscale_img = grayscale(resized_image)
@@ -107,7 +107,7 @@ def index():
             ASCII_ART_INV.append(ascii_string_rev[i:i+img_width])
 
         # Delete image from server
-        os.remove(os.path.join('/tmp/', filename))
+        os.remove(os.path.join('tmp/', filename))
 
         return redirect("/ascii")
 
