@@ -1,4 +1,3 @@
-import os
 from flask import Flask, redirect, render_template, request
 from main import open, resize, grayscale, ascii, width
 
@@ -70,11 +69,6 @@ def index():
             CODE = "406"
             return redirect("/error")
 
-        # Save file on server
-        # elif file and allowed_file(file.filename):
-        #     filename = file.filename
-        #     file.save(os.path.join('tmp/', filename))
-
         # Get index of character set
         set = request.form.get("density")
 
@@ -105,9 +99,6 @@ def index():
         for i in range(0, ascii_str_len, img_width):
             ASCII_ART.append(ascii_string[i:i+img_width])
             ASCII_ART_INV.append(ascii_string_rev[i:i+img_width])
-
-        # Delete image from server
-        # os.remove(os.path.join('tmp/', filename))
 
         return redirect("/ascii")
 
