@@ -54,6 +54,7 @@ body {
     width: 95%;
     border-radius: 0 0 10px 10px;
     margin: auto;
+    user-select: none;
 }
 
 .header h1 {
