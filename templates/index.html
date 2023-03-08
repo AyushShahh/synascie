@@ -4,10 +4,15 @@
     ASCII Art
 {% endblock %}
 
+{% block scripts %}
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script defer src="/static/app.js"></script>
+{% endblock %}
+
 {% block main %}
     <div class="header">
         <h1><u>ASCII Art</u></h1>
-        <h4>https://www.youtube.com/watch?v=kvW-cWD7sYY&t=5s</h4>
+        <h4>Convert any image into ASCII character art</h4>
     </div>
 
     <div class="container">
@@ -18,27 +23,18 @@
                 different ASCII Characters. It was invented, in large part, because early printers often lacked graphics ability and
                 thus, characters were used in place of graphic marks.<br>
                 <p class="orange">Example:</p>
+                <h3>Click on the images to enlarge them.</h3>
                 <div class="align">
-                    <img src="/static/dog.jpg" height="200">
-                    <img src="/static/asciidog.JPG" height="200">
-                    <img src="/static/asciidog1.JPG" height="200">
+                    <img data-enlargeable src="/static/dog.jpg" height="250">
+                    <img data-enlargeable src="/static/asciidog.JPG" height="250">
+                    <img data-enlargeable src="/static/asciidog1.JPG" height="250">
                 </div>
-                <p class="align">Above ASCII Art is generated using this website.</p>
-            </p>
-        </div>
-
-        <div class="section">
-            <h2>How is an image converted into ASCII character art?</h2>
-            <p>
-                First of all, the image is resized to a smaller size and is then converted to grayscale.
-                The reason behind converting to grayscale is that we can get the darkness of the pixel (amount of blackness or whiteness)
-                and then we can map each pixel to an ASCII character according to its density (for example 'Ñ' for the darkest pixel and "&nbsp;`&nbsp;"
-                or "&nbsp;&nbsp;" (whitespace) for the brightest pixel). Different ASCII character sets can be used.
+                <h3 class="align"><i>Above ASCII Art is generated using this website</i></h3>
             </p>
             <p class="orange">Try it now by uploading an image below!<br>Also try inverting the ascii art by clicking the button on ascii page and see what it generates!</p>
         </div>
 
-        <div class="section end">
+        <div class="section upload">
             <h2>Upload an Image</h2>
             <form action="/" method="post" enctype="multipart/form-data">
                 <input type="file" name="file" id="file" accept="image/png, image/jpg, image/jpeg"> &nbsp;
@@ -52,6 +48,16 @@
                 <input name="density" type="radio" value="1"> Wwli:,.<br>
                 <input name="density" type="radio" value="6"> ¶@ØÆMåBNÊßÔR#8Q&mÃ0À$GXZA5ñk2S%±3Fz¢yÝCJf1t7ªLc¿+?(r/¤²!*;^:,'.`<br>
             </form>
+        </div>
+
+        <div class="section end">
+            <h2>How is an image converted into ASCII character art?</h2>
+            <p>
+                First of all, the image is resized to a smaller size and is then converted to grayscale.
+                The reason behind converting to grayscale is that we can get the darkness of the pixel (amount of blackness or whiteness)
+                and then we can map each pixel to an ASCII character according to its density (for example 'Ñ' for the darkest pixel and "&nbsp;`&nbsp;"
+                or "&nbsp;&nbsp;" (whitespace) for the brightest pixel). Different ASCII character sets can be used.
+            </p>
         </div>
     </div>
 {% endblock %}
