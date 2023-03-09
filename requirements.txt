@@ -1,3 +1,3 @@
 flask
 Pillow
-pillow-heif
+pillow_heif
