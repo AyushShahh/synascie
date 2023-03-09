@@ -7,6 +7,9 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'heic', 'heif'}
 
 app = Flask(__name__)
 
+# Limiting size to 4.5 mb because of vercel server limit
+app.config['MAX_CONTENT_LENGTH'] = 4.5 * 1024 * 1024
+
 # Initialising lists which will store each line of generated ascii art
 ASCII_ART = []
 ASCII_ART_INV = []
@@ -33,8 +36,17 @@ def allowed_file(filename):
 def invalid_route(e):
     global MESSAGE
     global CODE
-    MESSAGE = "Not found"
+    MESSAGE = "Page not found"
     CODE = "404"
+    return redirect("/error")
+
+# Error handling for large payloads
+@app.errorhandler(413)
+def payload_too_large(e):
+    global MESSAGE
+    global CODE
+    MESSAGE = "File size exceeds the server limit. Please submit image file of size less than 4.5 mb. This is implemented to reduce bandwidth and load on the server. I'm working on this, until then you can upload the screenshot of your original image as a workaround."
+    CODE = 413
     return redirect("/error")
 
 
@@ -51,7 +63,7 @@ def index():
 
         # Check if file is uploaded through input form with name 'file'
         if 'file' not in request.files:
-            MESSAGE = "Hmmm suspecious"
+            MESSAGE = "Hmmm suspecious. You think you're smart?"
             CODE = "203"
             return redirect("/error")
 
@@ -59,13 +71,13 @@ def index():
 
         # If the user does not select a file, the browser submits an empty file without a filename.
         if file.filename == '':
-            MESSAGE = "No content. Please submit an image file"
+            MESSAGE = "How can you expect this to generate art for you if you don't submit an image file?"
             CODE = "204"
             return redirect("/error")
 
         # If filetype is not allowed
         elif not allowed_file(file.filename):
-            MESSAGE = "Please upload jpg, jpeg, png, heic or heif image files"
+            MESSAGE = "Upload jpg, jpeg, png, heic or heif image files only"
             CODE = "406"
             return redirect("/error")
 
@@ -74,7 +86,7 @@ def index():
 
         # Check if user has selected character set radio
         if not set:
-            MESSAGE = "Please select a character set"
+            MESSAGE = "Select a character set"
             CODE = "204"
             return redirect("/error")
         
@@ -86,7 +98,6 @@ def index():
         else:
             useragent = "pc"
             max_width, max_height = int(int(bwidth) / 2.5), int(int(bheight) / 4)
-        
 
         # Open image, get its dimentions and new image dimensions
         image = open(file)
@@ -125,7 +136,7 @@ def art():
     if request.method == "POST":
         return redirect("/invascii")
     else:
-        return render_template("art.html", ascii=ASCII_ART)
+        return render_template("art.html", ascii=ASCII_ART, button="Invert", action="/ascii")
 
 
 # Render invert ascii page passing list of lines of art
@@ -134,10 +145,16 @@ def inverse():
     if request.method == "POST":
         return redirect("/ascii")
     else:
-        return render_template("invart.html", ascii=ASCII_ART_INV)
+        return render_template("art.html", ascii=ASCII_ART_INV, button="Original", action="/invascii")
 
 
 # Render error page passing error message and error code
 @app.route("/error")
 def apology():
-    return render_template("error.html", code=CODE, error=MESSAGE)
+    global CODE
+    global MESSAGE
+    code = CODE
+    message = MESSAGE
+    CODE = "$*@#"
+    MESSAGE = "What the hell are you doing here?"
+    return render_template("error.html", code=code, error=message)
