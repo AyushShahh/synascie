@@ -18,19 +18,18 @@ def new_dims(w, h, mw, mh, agent):
     nw = mw
     nh = int(nw * r * 0.6)
 
-    match agent:
-        case "mobile":
+    if agent == "mobile":
+        if nh > mh:
+            nh = mh
+            nw = int(nh / (r * 0.6))
+    else:
+        if w > h:
             if nh > mh:
                 nh = mh
                 nw = int(nh / (r * 0.6))
-        case "pc":
-            if w > h:
-                if nh > mh:
-                    nh = mh
-                    nw = int(nh / (r * 0.6))
-            else:
-                nh = mh
-                nw = int(nh / (r * 0.55))
+        else:
+            nh = mh
+            nw = int(nh / (r * 0.55))
     return nw, nh
 
 # Get size of image
