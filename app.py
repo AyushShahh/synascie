@@ -1,9 +1,9 @@
 from flask import Flask, redirect, render_template, request
-from main import open, resize, grayscale, ascii, width
+from main import open, resize, grayscale, ascii, size, new_dims
 
 
 # Allowed image extensions
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'heic', 'heif'}
 
 app = Flask(__name__)
 
@@ -65,7 +65,7 @@ def index():
 
         # If filetype is not allowed
         elif not allowed_file(file.filename):
-            MESSAGE = "Please upload jpg, png or jpeg image files"
+            MESSAGE = "Please upload jpg, jpeg, png, heic or heif image files"
             CODE = "406"
             return redirect("/error")
 
@@ -77,11 +77,24 @@ def index():
             MESSAGE = "Please select a character set"
             CODE = "204"
             return redirect("/error")
+        
+        # Get client browser-resolution and determine user-agent, max width and max height
+        bwidth, bheight = request.form.get("resolution").split("x")
+        if int(bwidth) < int(bheight):
+            useragent = "mobile"
+            max_width, max_height = int(int(bwidth) / 2), int(int(bheight) / 3.5)
+        else:
+            useragent = "pc"
+            max_width, max_height = int(int(bwidth) / 2.5), int(int(bheight) / 4)
+        
 
-        # Open image, resize it, get its width and then convert to grayscale
+        # Open image, get its dimentions and new image dimensions
         image = open(file)
-        resized_image = resize(image, 150)
-        img_width = width(resized_image)
+        width, height = size(image)
+        newimg_width, newimg_height = new_dims(width, height, max_width, max_height, useragent)
+
+        # resize it and then convert to grayscale
+        resized_image = resize(image, newimg_width, newimg_height)
         grayscale_img = grayscale(resized_image)
 
         # Get whole ascii string of grayscale image and its length
@@ -96,9 +109,9 @@ def index():
         ASCII_ART_INV.clear()
 
         # Slice the ascii string by width and append whole line to the lists
-        for i in range(0, ascii_str_len, img_width):
-            ASCII_ART.append(ascii_string[i:i+img_width])
-            ASCII_ART_INV.append(ascii_string_rev[i:i+img_width])
+        for i in range(0, ascii_str_len, newimg_width):
+            ASCII_ART_INV.append(ascii_string[i:i+newimg_width])
+            ASCII_ART.append(ascii_string_rev[i:i+newimg_width])
 
         return redirect("/ascii")
 

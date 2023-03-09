@@ -1,28 +1,56 @@
 from PIL import Image
 from math import floor
+from pillow_heif import register_heif_opener
+register_heif_opener()
 
 
 # Open image
 def open(image):
     return Image.open(image)
 
-# Get width of image
-def width(image):
-    return image.width
+# Calculate new dimentions of the image
+def new_dims(w, h, mw, mh, agent):
+    # aspect ratio
+    r = h / w
+
+    # The ASCII character glyphs are taller than they are wide. Maintain the aspect
+    # ratio by reducing the image height.
+    nw = mw
+    nh = int(nw * r * 0.6)
+
+    match agent:
+        case "mobile":
+            if nh > mh:
+                nh = mh
+                nw = int(nh / (r * 0.6))
+        case "pc":
+            if w > h:
+                if nh > mh:
+                    nh = mh
+                    nw = int(nh / (r * 0.6))
+            else:
+                nh = mh
+                nw = int(nh / (r * 0.55))
+    return nw, nh
+
+# Get size of image
+def size(image):
+    return image.size
 
 # Resize image maintaining aspect ratio
-def resize(image, width):
+def resize(image, width, height):
 
     # width_percent = (new_width/float(image.size[0]))
     # new_height = int((float(image.size[1])*float(width_percent)))
     # return image.resize((new_width, new_height), Image.Resampling.LANCZOS)
 
-    orig_width, orig_height = image.size
-    r = orig_height / orig_width
+    # orig_width, orig_height = image.size
+    # r = orig_height / orig_width
 
     # The ASCII character glyphs are taller than they are wide. Maintain the aspect
     # ratio by reducing the image height.
-    height = int(width * r * 0.6)
+    # height = int(width * r * 0.6)
+
     return image.resize((width, height), Image.Resampling.LANCZOS)
 
 # Convert image to grayscale
