@@ -29,14 +29,17 @@ and then we can map each pixel to an ASCII character according to its density (f
 - PIL - For image processing
 - math - For using math functions
 - Flask - For using flask features
+- pillow_heif - Adding support for heic and heif images
 
 ## Explaining the code
 There are two python files, _main.py_ and _app.py_. _main.py_ contains functions for image processing while _app.py_ configures flask and defines route functions. HTML files are in the templates folder. _layout.html_ is the template file and other HTML files are the extensions of it. Images, CSS file and favicons are in the static folder.
 
 #### main.py
-Open and width functions are for opening an image file and getting the width of an image file respectively.
+Open and size functions are for opening an image file and getting the size of an image file respectively.
 
-Resize function is for resizing the image file with maintaining the aspect ratio. A normal image file consists of thousands of pixels. Resizing to lower amount is better for performance and there are other benefits too.
+new_dims function is used to get new dimensions (width and height) based on the calculated max width and height of image (using device width and height) and input image dimensions.
+
+Resize function is for resizing the image file with given width and height. A normal image file consists of thousands of pixels. Resizing to lower amount is better for performance and there are other benefits too.
 
 Grayscale function converts an image to grayscale. The reason for turning to grayscale is that we can get the darkness value of each pixel and then we can perform operations on the image based on this darkness value.
 
