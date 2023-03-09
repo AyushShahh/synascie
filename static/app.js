@@ -1,3 +1,5 @@
+document.getElementById('browser-resolution').value = screen.width + "x" + screen.height;
+
 $('img[data-enlargeable]').addClass('img-enlargeable').click(function() {
     var src = $(this).attr('src');
     var modal;
