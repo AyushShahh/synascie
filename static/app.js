@@ -1,5 +1,18 @@
 document.getElementById('browser-resolution').value = screen.width + "x" + screen.height;
 
+function getAndPostSize(event) {
+  const file = event.target.files[0];
+  if (file) {
+    const fileSize = file.size; // in bytes
+    document.getElementById('size').value = fileSize;
+    if (fileSize > 4.5 * 1024 * 1024) 
+    {
+      document.getElementById("file").remove();
+      document.getElementById("form").submit();
+    }
+  }
+}
+
 $('img[data-enlargeable]').addClass('img-enlargeable').click(function() {
     var src = $(this).attr('src');
     var modal;

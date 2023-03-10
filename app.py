@@ -18,9 +18,6 @@ Session(app)
 # Max session file limit for /tmp/ folder
 FILES = 100
 
-# Limiting size to 4.5 mb because of vercel server limit
-app.config['MAX_CONTENT_LENGTH'] = 4.5 * 1024 * 1024
-
 
 # List of character sets
 DENSITY = ["@Ñ#W$9876543210ab?c!+=;:_-,.           ", "Wwli:,.  ",
@@ -38,14 +35,7 @@ def allowed_file(filename):
 def invalid_route(e):
     session['message'] = "Page not found"
     session['code'] = "404"
-    return redirect("/error")
-
-# Error handling for large payloads
-@app.errorhandler(413)
-def payload_too_large(e):
-    session['message'] = "File size exceeds the server limit. Please submit image file of size less than 4.5 mb. This is implemented to reduce bandwidth and load on the server. I'm working on this, until then you can upload the screenshot of your original image as a workaround."
-    session['code'] = 413
-    return redirect("/error")
+    return redirect("/error")   
 
 
 # Index route with GET and POST methods
@@ -57,6 +47,16 @@ def index():
 
         # Add global file variable
         global FILES
+
+        # Error handling for large payloads
+        max_file_size = 4.5 * 1024 * 1024  # 4.5 MB
+
+        # If file size is greater than 4.5 mb, raise 413 error
+        filesize = int(request.form.get('size'))
+        if filesize > max_file_size:
+            session['message'] = "File size exceeds the server limit. Please submit image file of size less than 4.5 MB. This is implemented to reduce bandwidth and load on the server. I'm working on this, until then you can upload the screenshot of your original image as a workaround."
+            session['code'] = 413
+            return redirect("/error")
 
         # Check if file is uploaded through input form with name 'file'
         if 'file' not in request.files:
