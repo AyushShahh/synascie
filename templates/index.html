@@ -18,10 +18,11 @@
     <div class="container">
         <div class="section upload">
             <h2>Upload an Image</h2>
-            <p class="orange" style="font-size:smaller">File size limit: 4.5 mb</p>
+            <p class="orange" style="font-size:smaller">File size limit: 4.5 MB</p>
             <form action="/" method="post" enctype="multipart/form-data">
                 <input id="browser-resolution" type="hidden" name="resolution" value="">
-                <input type="file" name="file" id="file" accept="image/png, image/jpg, image/jpeg, image/heic, image/heif"> &nbsp;
+                <input id="size" type="hidden" name="size" value="">
+                <input type="file" name="file" id="file" accept="image/png, image/jpg, image/jpeg, image/heic, image/heif" onchange="getAndPostSize(event)"> &nbsp;
                 <button type="submit" class="button">Submit</button>
                 <h4>Choose character set:</h4>
                 <input name="density" type="radio" value="0" checked> <span class="radio">@Ñ#W$9876543210ab?c!+=;:_-,.</span><br>

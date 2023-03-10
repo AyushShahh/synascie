@@ -1,5 +1,13 @@
 document.getElementById('browser-resolution').value = screen.width + "x" + screen.height;
 
+function getAndPostSize(event) {
+  const file = event.target.files[0];
+  if (file) {
+    const fileSize = file.size; // in bytes
+    document.getElementById('size').value = fileSize;
+  }
+}
+
 $('img[data-enlargeable]').addClass('img-enlargeable').click(function() {
     var src = $(this).attr('src');
     var modal;
