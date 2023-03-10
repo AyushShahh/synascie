@@ -7,7 +7,8 @@ function getAndPostSize(event) {
     document.getElementById('size').value = fileSize;
     if (fileSize > 4.5 * 1024 * 1024) 
     {
-      file = "";
+      document.getElementById("file").remove();
+      document.getElementById("form").submit();
     }
   }
 }
