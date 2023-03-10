@@ -1,3 +1,4 @@
 flask
 Pillow
 pillow_heif
+flask_session
