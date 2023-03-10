@@ -156,6 +156,11 @@ input[type=radio], img, button, #file {
     -webkit-tap-highlight-color: transparent;
 }
 
+#error {
+    width: 600px !important;
+    height: auto;
+}
+
 .end {
     margin-bottom: 30px;
 }
