@@ -11,8 +11,8 @@
         {% endfor %}
     </div>
     <div class="align">
-        <form action="/ascii" method="post">
-            <button type="submit" class="button">Invert</button>
+        <form action="{{ action }}" method="post">
+            <button type="submit" class="button">{{ button }}</button>
         </form>
         <button class="button" onclick="location.href = '/'">Homepage</button>
     </div>

@@ -16,6 +16,24 @@
     </div>
 
     <div class="container">
+        <div class="section upload">
+            <h2>Upload an Image</h2>
+            <p class="orange" style="font-size:smaller">File size limit: 4.5 mb</p>
+            <form action="/" method="post" enctype="multipart/form-data">
+                <input id="browser-resolution" type="hidden" name="resolution" value="">
+                <input type="file" name="file" id="file" accept="image/png, image/jpg, image/jpeg, image/heic, image/heif"> &nbsp;
+                <button type="submit" class="button">Submit</button>
+                <h4>Choose character set:</h4>
+                <input name="density" type="radio" value="0" checked> <span class="radio">@Ñ#W$9876543210ab?c!+=;:_-,.</span><br>
+                <input name="density" type="radio" value="4"> <span class="radio">$@B%8&WM#ahkbdpqwmZ0OQLCJUYXzocvunxrjft/\|()1{}[]?-_+~<>i!lI;:,*^`'.</span><br>
+                <input name="density" type="radio" value="5"> <span class="radio">@#Oo*°.,<br>
+                <input name="density" type="radio" value="2"> <span class="radio">@&%QWNM0gB$#DR8mHXKAUbGOpV4d9h6PkqwSE2]ayjxY5Zoen[ult13If}C{iF|(7J)vTLs?z/*cr!+<>;=^,_:'-.`</span><br>
+                <input name="density" type="radio" value="3"> <span class="radio">@%#*+=_:.</span><br>
+                <input name="density" type="radio" value="1"> <span class="radio">Wwli:,.</span><br>
+                <input name="density" type="radio" value="6"> <span class="radio">¶@ØÆMåBNÊßÔR#8Q&mÃ0À$GXZA5ñk2S%±3Fz¢yÝCJf1t7ªLc¿+?(r/¤²!*;^:,'.`</span><br>
+            </form>
+        </div>
+
         <div class="section">
             <h2>What is ASCII Art?</h2>
             <p>
@@ -23,7 +41,7 @@
                 different ASCII Characters. It was invented, in large part, because early printers often lacked graphics ability and
                 thus, characters were used in place of graphic marks.<br>
                 <p class="orange">Example:</p>
-                <h3>Click on the images to enlarge them.</h3>
+                <h3>Click on the images to enlarge them.<br>Zoom-in to see what are they made of!</h3>
                 <div class="align">
                     <img data-enlargeable src="/static/dog.jpg" height="250">
                     <img data-enlargeable src="/static/asciidog.JPG" height="250">
@@ -31,23 +49,6 @@
                 </div>
                 <h3 class="align"><i>Above ASCII Art is generated using this website</i></h3>
             </p>
-            <p class="orange">Try it now by uploading an image below!<br>Also try inverting the ascii art by clicking the button on ascii page and see what it generates!</p>
-        </div>
-
-        <div class="section upload">
-            <h2>Upload an Image</h2>
-            <form action="/" method="post" enctype="multipart/form-data">
-                <input type="file" name="file" id="file" accept="image/png, image/jpg, image/jpeg"> &nbsp;
-                <button type="submit" class="button">Submit</button>
-                <h4>Choose character set:</h4>
-                <input name="density" type="radio" value="0" checked> @Ñ#W$9876543210ab?c!+=;:_-,.<br>
-                <input name="density" type="radio" value="4"> $@B%8&WM#ahkbdpqwmZ0OQLCJUYXzocvunxrjft/\|()1{}[]?-_+~<>i!lI;:,*^`'.<br>
-                <input name="density" type="radio" value="5"> @#Oo*°.,<br>
-                <input name="density" type="radio" value="2"> @&%QWNM0gB$#DR8mHXKAUbGOpV4d9h6PkqwSE2]ayjxY5Zoen[ult13If}C{iF|(7J)vTLs?z/*cr!+<>;=^,_:'-.`<br>
-                <input name="density" type="radio" value="3"> @%#*+=_:.<br>
-                <input name="density" type="radio" value="1"> Wwli:,.<br>
-                <input name="density" type="radio" value="6"> ¶@ØÆMåBNÊßÔR#8Q&mÃ0À$GXZA5ñk2S%±3Fz¢yÝCJf1t7ªLc¿+?(r/¤²!*;^:,'.`<br>
-            </form>
         </div>
 
         <div class="section end">
