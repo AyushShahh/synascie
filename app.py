@@ -55,6 +55,14 @@ def index():
             session['message'] = "Hmmm suspecious. You think you're smart?"
             session['code'] = "203"
             return redirect("/error")
+        
+        # Error handling for large payloads
+        # If file size is greater than 4.5 mb, raise 413 error
+        filesize = int(request.form.get("size"))
+        if filesize > max_file_size:
+            session['message'] = "File size exceeds the server limit. Please submit image file of size less than 4.5 MB. This is implemented to reduce bandwidth and load on the server. I'm working on this, until then you can upload the screenshot of your original image as a workaround."
+            session['code'] = 413
+            return redirect("/error")
 
         # Get image file
         file = request.files['file']
@@ -69,14 +77,6 @@ def index():
         elif not allowed_file(file.filename):
             session['message'] = "Upload jpg, jpeg, png, heic or heif image files only"
             session['code'] = "406"
-            return redirect("/error")
-        
-        # Error handling for large payloads
-        # If file size is greater than 4.5 mb, raise 413 error
-        filesize = int(request.form.get("size"))
-        if filesize > max_file_size:
-            session['message'] = "File size exceeds the server limit. Please submit image file of size less than 4.5 MB. This is implemented to reduce bandwidth and load on the server. I'm working on this, until then you can upload the screenshot of your original image as a workaround."
-            session['code'] = 413
             return redirect("/error")
 
         # Get index of character set
