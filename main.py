@@ -1,23 +1,29 @@
 from PIL import Image
 from math import floor
 from pillow_heif import register_heif_opener
-register_heif_opener()
+from os import remove, listdir, path
+from time import time
 
+
+# used to open and work with helf/heic images in PIL
+register_heif_opener()
 
 # Open image
 def open(image):
     return Image.open(image)
 
-# Calculate new dimentions of the image
+# Calculate new dimentions of the image, maintaining aspect ratio
 def new_dims(w, h, mw, mh, agent):
     # aspect ratio
     r = h / w
 
     # The ASCII character glyphs are taller than they are wide. Maintain the aspect
-    # ratio by reducing the image height.
+    # ratio by reducing the image height
     nw = mw
     nh = int(nw * r * 0.6)
 
+    # If width or height is greater than its max value,
+    # limit it to the max value and calculate other dimension
     if agent == "mobile":
         if nh > mh:
             nh = mh
@@ -75,3 +81,19 @@ def map(value, start1, stop1, start2, stop2):
     NewRange = (stop2 - start2)
     mappedValue = (((value - start1) * NewRange) / OldRange) + start2
     return floor(mappedValue)
+
+# Remove sessions in /tmp/ folder
+def remove_sessions():
+    dir_path = '/tmp/'
+
+    # Get the current time in seconds
+    current_time = time()
+
+    # Iterate through all files in the /tmp/ folder
+    for file_name in listdir(dir_path):
+        file_path = path.join(dir_path, file_name)
+        
+        # Check and delete file if it has no extension and was created more than 10 mins ago
+        if path.isfile(file_path) and '.' not in file_name:
+            if current_time - path.getctime(file_path) > 600:
+                remove(file_path)
