@@ -4,16 +4,32 @@
     Generated Art
 {% endblock %}
 
+{% block scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script defer src="/static/image.js"></script>
+{% endblock %}
+
 {% block main %}
     <div class="art">
-        {% for line in ascii %}
-            <pre>{{ line }}</pre>
-        {% endfor %}
+        <div id="art">
+            {% for line in ascii %}
+                <pre>{{ line }}</pre>
+            {% endfor %}
+        </div>
     </div>
-    <div class="align">
-        <form action="{{ action }}" method="post">
-            <button type="submit" class="button">{{ button }}</button>
-        </form>
-        <button class="button" onclick="location.href = '/'">Homepage</button>
+    <div class="section options">
+        <h2>Options</h2>
+        <!-- <h4>Change background color</h4>
+        <input type="radio" class="background" name="background" value="black" checked> black &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" class="background" name="background" value="white" onclick="changeBackground()"> white -->
+        <div class="align">
+            <form action="{{ action }}" method="post">
+                <button type="submit" class="button">{{ button }}</button>
+            </form>
+            <button class="button" onclick="location.href = '/'">Homepage</button>
+            <button id="save" class="button">Save as png image</button>
+        </div>
     </div>
 {% endblock %}

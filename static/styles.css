@@ -27,6 +27,7 @@ body {
     text-align: center;
     font-family: 'Courier';
     color: #fff;
+    /* font-weight: bold; */
 }
 
 .align button {
@@ -159,6 +160,11 @@ input[type=radio], img, button, #file {
 #error {
     width: 600px !important;
     height: auto;
+}
+
+.options {
+    color: white;
+    text-align: center;
 }
 
 .end {
