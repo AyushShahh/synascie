@@ -5,9 +5,7 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
     <script defer src="/static/image.js"></script>
 {% endblock %}
 
@@ -29,7 +27,7 @@
                 <button type="submit" class="button">{{ button }}</button>
             </form>
             <button class="button" onclick="location.href = '/'">Homepage</button>
-            <button id="save" class="button">Save as png image</button>
         </div>
+        <button id="save" class="button">Save as jpeg</button>
     </div>
 {% endblock %}
