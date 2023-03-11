@@ -171,6 +171,16 @@ input[type=radio], img, button, #file {
     margin-bottom: 30px;
 }
 
+#link {
+    color: black;
+    background-color: white;
+    text-decoration: 2px underline;
+    text-decoration-color: grey;
+    text-decoration-style: wavy;
+    font-weight: bold !important;
+    border-radius: 2px;
+}
+
 @media only screen and (max-width: 600px) {
     .header h1 {
         font-size: 30px;
