@@ -46,6 +46,8 @@ If you would like to view this local site from other device(s), navigate to `htt
 - Flask - For using flask features and jinja templating
 - pillow_heif - Adding support for heic and heif images
 - flask_sessions - For browser sessions
+- html2canvas - To take screenshots with JavaScript
+- FileSaver.js - To implement HTML5 saveAs() in javascript
 
 # License
 This project is licensed under the **MIT License**. View the [`LICENSE`](https://github.com/AyushShahh/ASCII-Art/blob/main/LICENSE) file for details.
