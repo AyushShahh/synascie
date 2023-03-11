@@ -1,5 +1,7 @@
 # ASCII Art <img src="static/favicons/favicon-32x32.png">
-Convert any image into ASCII character art.
+Convert any image into ASCII character art. 
+
+This was my Harvard's CS50x 2022 final project submission. I have continued to work on and improved this project after that.  
 
 Video demo: [Watch on YouTube](https://www.youtube.com/watch?v=kvW-cWD7sYY)
 
@@ -45,9 +47,8 @@ If you would like to view this local site from other device(s), navigate to `htt
 - PIL - For image processing
 - Flask - For using flask features and jinja templating
 - pillow_heif - Adding support for heic and heif images
-- flask_sessions - For browser sessions
-- html2canvas - To take screenshots with JavaScript
-- FileSaver.js - To implement HTML5 saveAs() in javascript
+- flask_sessions - For web browser sessions
+- dom-to-image - To take DOM snapshot using JavaScript
 
 # License
 This project is licensed under the **MIT License**. View the [`LICENSE`](https://github.com/AyushShahh/ASCII-Art/blob/main/LICENSE) file for details.
