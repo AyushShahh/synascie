@@ -6,7 +6,7 @@
 
 {% block scripts %}
     <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script defer src="/static/app.js"></script>
+    <script defer src="/static/index.js"></script>
 {% endblock %}
 
 {% block main %}
@@ -25,9 +25,10 @@
                 <input type="file" name="file" id="file" accept="image/png, image/jpg, image/jpeg, image/heic, image/heif" onchange="getAndPostSize(event)"> &nbsp;
                 <button type="submit" class="button">Submit</button>
                 <h4>Choose character set:</h4>
+                <p class="orange" style="font-size:smaller">The ASCII image will be made of the characters from your chosen character set</p>
                 <input name="density" type="radio" value="0" checked> <span class="radio">@Ñ#W$9876543210ab?c!+=;:_-,.</span><br>
-                <input name="density" type="radio" value="4"> <span class="radio">$@B%8&WM#ahkbdpqwmZ0OQLCJUYXzocvunxrjft/\|()1{}[]?-_+~<>i!lI;:,*^`'.</span><br>
                 <input name="density" type="radio" value="5"> <span class="radio">@#Oo*°.,<br>
+                <input name="density" type="radio" value="4"> <span class="radio">$@B%8&WM#ahkbdpqwmZ0OQLCJUYXzocvunxrjft/\|()1{}[]?-_+~<>i!lI;:,*^`'.</span><br>
                 <input name="density" type="radio" value="2"> <span class="radio">@&%QWNM0gB$#DR8mHXKAUbGOpV4d9h6PkqwSE2]ayjxY5Zoen[ult13If}C{iF|(7J)vTLs?z/*cr!+<>;=^,_:'-.`</span><br>
                 <input name="density" type="radio" value="3"> <span class="radio">@%#*+=_:.</span><br>
                 <input name="density" type="radio" value="1"> <span class="radio">Wwli:,.</span><br>
