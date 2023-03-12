@@ -1,10 +1,13 @@
+// Get user's device screen width and height
 document.getElementById('browser-resolution').value = screen.width + "x" + screen.height;
 
+// Get size of image and set its value
 function getAndPostSize(event) {
   const file = event.target.files[0];
   if (file) {
     const fileSize = file.size; // in bytes
     document.getElementById('size').value = fileSize;
+    // If greater than 4.5 MB, remove image file and submit form
     if (fileSize > 4.5 * 1024 * 1024) 
     {
       document.getElementById("file").remove();
@@ -13,6 +16,7 @@ function getAndPostSize(event) {
   }
 }
 
+// Clicking on image will enlarge it fullscreen with high z-index
 $('img[data-enlargeable]').addClass('img-enlargeable').click(function() {
     var src = $(this).attr('src');
     var modal;
