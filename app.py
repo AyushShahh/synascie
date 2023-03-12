@@ -4,7 +4,7 @@ from main import open, resize, grayscale, ascii, size, new_dims, remove_sessions
 
 
 # Allowed image extensions
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'heic', 'heif'}
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'heic', 'heif', 'webp'}
 
 # Initialize flask app
 app = Flask(__name__)
@@ -67,7 +67,7 @@ def index():
 
         # If file size is greater than 4.5 mb, raise 413 error
         if int(filesize) > max_file_size:
-            session['message'] = "File size exceeds the server limit. Please submit image file of size less than 4.5 MB. This is implemented to reduce bandwidth and load on the server. I'm working on this, until then you can upload the screenshot of your original image as a workaround."
+            session['message'] = "File size exceeds the server limit. Please submit an image file of size lesser than 4.5 MB. This is implemented to reduce bandwidth and load on the server. I'm working on this, until then you can upload the screenshot of your original image as a workaround (it won't affect the quality of generated ASCII image)."
             session['code'] = 413
             return redirect("/error")
 
@@ -88,7 +88,7 @@ def index():
 
         # If filetype is not allowed
         elif not allowed_file(file.filename):
-            session['message'] = "Upload jpg, jpeg, png, heic or heif image files only"
+            session['message'] = "Upload image files of jpg, jpeg, png, heic, heif or webp formats only"
             session['code'] = "406"
             return redirect("/error")
 
