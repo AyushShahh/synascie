@@ -24,14 +24,15 @@
                 <input id="size" type="hidden" name="size" value="">
                 <input type="file" name="file" id="file" accept="image/png, image/jpg, image/jpeg, image/heic, image/heif" onchange="getAndPostSize(event)"> &nbsp;
                 <button type="submit" class="button">Submit</button>
+                <p style="font-size:smaller; word-break: normal">You can download or invert the image from the options tab after generating the ascii art</p>
                 <h4>Choose character set:</h4>
-                <p class="orange" style="font-size:smaller">The ASCII image will be made of the characters from your chosen character set</p>
+                <p class="orange" style="font-size:smaller; word-break: normal">The ASCII image will be made of the characters from your chosen character set</p>
                 <input name="density" type="radio" value="0" checked> <span class="radio">@Ñ#W$9876543210ab?c!+=;:_-,.</span><br>
                 <input name="density" type="radio" value="5"> <span class="radio">@#Oo*°.,<br>
                 <input name="density" type="radio" value="4"> <span class="radio">$@B%8&WM#ahkbdpqwmZ0OQLCJUYXzocvunxrjft/\|()1{}[]?-_+~<>i!lI;:,*^`'.</span><br>
-                <input name="density" type="radio" value="2"> <span class="radio">@&%QWNM0gB$#DR8mHXKAUbGOpV4d9h6PkqwSE2]ayjxY5Zoen[ult13If}C{iF|(7J)vTLs?z/*cr!+<>;=^,_:'-.`</span><br>
                 <input name="density" type="radio" value="3"> <span class="radio">@%#*+=_:.</span><br>
                 <input name="density" type="radio" value="1"> <span class="radio">Wwli:,.</span><br>
+                <input name="density" type="radio" value="2"> <span class="radio">@&%QWNM0gB$#DR8mHXKAUbGOpV4d9h6PkqwSE2]ayjxY5Zoen[ult13If}C{iF|(7J)vTLs?z/*cr!+<>;=^,_:'-.`</span><br>
                 <input name="density" type="radio" value="6"> <span class="radio">¶@ØÆMåBNÊßÔR#8Q&mÃ0À$GXZA5ñk2S%±3Fz¢yÝCJf1t7ªLc¿+?(r/¤²!*;^:,'.`</span><br>
             </form>
         </div>
@@ -58,13 +59,9 @@
             <p>
                 First of all, the image is resized to a smaller size and is then converted to grayscale.
                 The reason behind converting to grayscale is that we can get the darkness of the pixel (amount of blackness or whiteness)
-                and then we can map each pixel to an ASCII character according to its density (for example 'Ñ' for the darkest pixel and "&nbsp;`&nbsp;"
-                or "&nbsp;&nbsp;" (whitespace) for the brightest pixel). Different ASCII character sets can be used.
+                and then we can map each pixel to an ASCII character according to its density (for example 'Ñ' for the brightest pixel and "&nbsp;`&nbsp;"
+                or "&nbsp;&nbsp;" (whitespace) for the darkest pixel). Different ASCII character sets can be used.
             </p>
-        </div>
-        <div class="section options">
-            <p>Copyright © 2023 &nbsp;<a id="link" href="https://ayushshahh.netlify.app/">Ayush Shah</a><span style="color:orange; font-size: larger;">&#10138;</span></p>
-            <p style="color:rgb(200, 200, 200)">View <a style="color: inherit; text-decoration: underline;" href="https://github.com/AyushShahh/ASCII-Art/">source code</a><span style="color:orange">&#10138;</span></p>
         </div>
     </div>
 {% endblock %}
