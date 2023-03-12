@@ -1,6 +1,4 @@
 # ASCII Art <img src="static/favicons/favicon-32x32.png">
-Convert any image into ASCII character art. 
-
 This was my Harvard's CS50x 2022 final project submission. I have continued to work on and improved this project after that.  
 
 Video demo: [Watch on YouTube](https://www.youtube.com/watch?v=kvW-cWD7sYY)
