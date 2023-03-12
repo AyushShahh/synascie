@@ -48,12 +48,25 @@ def index():
         # Add global file variable
         global FILES
 
+        # Check if size is submitted through form
+        if 'size' not in request.form:
+            session['message'] = "Hmmm suspecious. You think you're smart?"
+            session['code'] = "203"
+            return redirect("/error")
+
+        filesize = request.form.get('size')
+
+        # If user doesn't submit an image file, filesize will be 0
+        if filesize == '':
+            session['message'] = "How can you expect this to generate art for you if you don't submit an image file?"
+            session['code'] = "204"
+            return redirect("/error")
+
         # Error handling for large payloads
         max_file_size = 4.5 * 1024 * 1024  # 4.5 MB
 
         # If file size is greater than 4.5 mb, raise 413 error
-        filesize = int(request.form.get('size'))
-        if filesize > max_file_size:
+        if int(filesize) > max_file_size:
             session['message'] = "File size exceeds the server limit. Please submit image file of size less than 4.5 MB. This is implemented to reduce bandwidth and load on the server. I'm working on this, until then you can upload the screenshot of your original image as a workaround."
             session['code'] = 413
             return redirect("/error")
