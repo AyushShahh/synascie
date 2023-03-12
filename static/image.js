@@ -13,11 +13,16 @@
 //     })
 // })
 
+// Get node, button and set scale
 var node = document.getElementById('art');
-var scale = 4;
+var scale = 5;
+var button = document.getElementById('save');
 
-document.getElementById("save").addEventListener('click', () => {
+// Add event listener and use dom-to-image to convert div to canvas
+button.addEventListener('click', () => {
+    button.innerText = "Generating...";
     domtoimage.toJpeg(art, {
+        // increase width by scale
         width: art.clientWidth * scale,
         height: art.clientHeight * scale,
         quality: 1,
@@ -25,10 +30,13 @@ document.getElementById("save").addEventListener('click', () => {
             transform: 'scale('+scale+')',
             transformOrigin: 'top left'
         }})
+        // convert canvas to dataurl & create and click link to download image
         .then(function (dataUrl) {
             var link = document.createElement('a');
             link.download = 'ascii.jpeg';
             link.href = dataUrl;
             link.click();
-        });
-})
+            button.innerText = "Save as jpeg";
+        }
+    );
+});
