@@ -32,7 +32,7 @@ def new_dims(w, h, mw, mh, agent):
         if w > h:
             if nh > mh:
                 nh = mh
-                nw = int(nh / (r * 0.6))
+                nw = int(nh / (r * 0.55))
         else:
             nh = mh
             nw = int(nh / (r * 0.55))
