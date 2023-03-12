@@ -46,7 +46,7 @@ If you would like to view this local site from other device(s), navigate to `htt
 - Flask - For using flask features and jinja templating
 - pillow_heif - Adding support for heic and heif images
 - flask_sessions - For web browser sessions
-- dom-to-image - To take DOM snapshot using JavaScript
+- dom-to-image - To capture DOM snapshot using JavaScript
 
 # License
 This project is licensed under the **MIT License**. View the [`LICENSE`](https://github.com/AyushShahh/ASCII-Art/blob/main/LICENSE) file for details.
