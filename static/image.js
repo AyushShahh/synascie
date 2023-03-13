@@ -20,11 +20,12 @@ var button = document.getElementById('save');
 
 // Add event listener and use dom-to-image to convert div to canvas
 button.addEventListener('click', () => {
+    button.disabled = true;
     button.innerText = "Generating...";
-    domtoimage.toJpeg(art, {
+    domtoimage.toJpeg(node, {
         // increase width by scale
-        width: art.clientWidth * scale,
-        height: art.clientHeight * scale,
+        width: node.clientWidth * scale,
+        height: node.clientHeight * scale,
         quality: 1,
         style: {
             transform: 'scale('+scale+')',
@@ -36,6 +37,7 @@ button.addEventListener('click', () => {
             link.download = 'ascii.jpeg';
             link.href = dataUrl;
             link.click();
+            button.disabled = false;
             button.innerText = "Save as jpeg";
         }
     );
