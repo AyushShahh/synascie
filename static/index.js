@@ -1,4 +1,4 @@
-if(navigator.userAgent.includes("Instagram") || navigator.userAgent.includes("FBAV"))
+if((navigator.userAgent.includes("Instagram") || navigator.userAgent.includes("FBAV")) && !(/iPhone|iPad|iPod/i.test(navigator.userAgent)) && document.referrer != "https://openinapp.co/ascii")
 {
   window.location.replace("https://openinapp.co/ascii");
 }
