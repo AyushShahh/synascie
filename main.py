@@ -12,6 +12,10 @@ register_heif_opener()
 def open(image):
     return Image.open(image)
 
+# Rotate image counter-clockwise by an angle
+def rotate(image, angle):
+    return image.rotate(angle, expand = 1)
+
 # Calculate new dimentions of the image, maintaining aspect ratio
 def new_dims(w, h, mw, mh, agent):
     # aspect ratio

@@ -1,6 +1,6 @@
 from flask import Flask, redirect, render_template, request, session
 from flask_session import Session
-from main import open, resize, grayscale, ascii, size, new_dims, remove_sessions
+from main import open, resize, grayscale, ascii, size, new_dims, remove_sessions, rotate
 
 
 # Allowed image extensions
@@ -101,6 +101,14 @@ def index():
             session['code'] = "204"
             return redirect("/error")
         
+        # Get angle of rotation
+        angle = request.form.get("rotate")
+
+        if not angle:
+            session['message'] = "Hmmm suspecious. You think you're smart?"
+            session['code'] = "203"
+            return redirect("/error")
+        
         # Get client browser-resolution and determine user-agent, max width and max height
         bwidth, bheight = request.form.get("resolution").split("x")
         if int(bwidth) < int(bheight):
@@ -112,6 +120,8 @@ def index():
 
         # Open image, get its dimentions and calculate new image dimensions
         image = open(file)
+        if angle != '0':
+            image = rotate(image, int(angle) % 360)
         width, height = size(image)
         newimg_width, newimg_height = new_dims(width, height, max_width, max_height, useragent)
 
