@@ -38,15 +38,16 @@ If you would like to view this local site from other device(s), navigate to `htt
 - HTML
 - CSS
 - JavaScript
-- Ajax
+- jQuery
 - Jinja templating
 
 ## Libraries Used
-- PIL - For image processing
+- PIL - For python image processing
 - Flask - For using flask features and jinja templating
 - pillow_heif - Adding support for heic and heif images
 - flask_sessions - For web browser sessions
-- dom-to-image - To capture DOM snapshot using JavaScript
+- DOM to Image - To capture DOM snapshot using JavaScript
+- Exif.js - For reading EXIF meta data from image files
 
 # License
 This project is licensed under the **MIT License**. View the [`LICENSE`](https://github.com/AyushShahh/ASCII-Art/blob/main/LICENSE) file for details.
