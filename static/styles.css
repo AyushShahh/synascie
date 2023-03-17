@@ -27,6 +27,7 @@ body {
     text-align: center;
     font-family: 'Courier';
     color: #fff;
+    object-fit: contain;
     /* font-weight: bold; */
 }
 
