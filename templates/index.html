@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block scripts %}
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"></script>
     <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script defer src="/static/index.js"></script>
 {% endblock %}
@@ -22,8 +23,9 @@
             <form action="/" id="form" method="post" enctype="multipart/form-data">
                 <input id="browser-resolution" type="hidden" name="resolution" value="">
                 <input id="size" type="hidden" name="size" value="">
+                <input id="rotate" type="hidden" name="rotate" value="0">
                 <input type="file" name="file" id="file" accept="image/png, image/jpg, image/jpeg, image/heic, image/heif" onchange="getAndPostSize(event)"> &nbsp;
-                <button type="submit" class="button">Submit</button>
+                <button type="submit" id="sub" class="button">Submit</button>
                 <p style="font-size:smaller; word-break: normal">You can download or invert the image from the options tab after generating the ascii art</p>
                 <h4>Choose character set:</h4>
                 <p class="orange" style="font-size:smaller; word-break: normal">The ASCII image will be made of the characters from your chosen character set</p>
