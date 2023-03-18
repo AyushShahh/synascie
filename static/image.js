@@ -21,22 +21,17 @@ var button = document.getElementById('save');
 button.addEventListener('click', () => {
     button.disabled = true;
     button.innerText = "Generating...";
-    var nodeClone = node.cloneNode(true);
-    nodeClone.style.position = "absolute";
-    nodeClone.style.left = "-9999px";
-    document.body.appendChild(nodeClone);
-    html2canvas(nodeClone, {
-        scale: 5, // set the scale factor to 5
-        backgroundColor: null, // set background color to transparent
-      }).then(function(canvas) {
-        // convert canvas to data URL and download as JPEG
-        var link = document.createElement("a");
-        link.download = "ascii.jpg";
-        link.href = canvas.toDataURL("image/jpeg", 1.0);
-        link.click();
-        document.body.removeChild(nodeClone);
-        button.disabled = false;
-        button.innerText = "Save as jpeg";
-      }
-    ); 
+    domtoimage.toJpeg(node, {
+      scale: 5
+        })
+        // convert canvas to dataurl & create and click link to download image
+        .then(function (dataUrl) {
+            var link = document.createElement('a');
+            link.download = 'ascii.jpeg';
+            link.href = dataUrl;
+            link.click();
+            button.disabled = false;
+            button.innerText = "Save as jpeg";
+        }
+    );
 });
