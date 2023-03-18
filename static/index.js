@@ -1,24 +1,8 @@
 if(navigator.userAgent.includes("Instagram") || navigator.userAgent.includes("FBAV"))
 {
-  const url = "https://openinapp.co/ascii";
-  if (document.referrer != url)
+  if (document.referrer != "https://openinapp.co/" && !(/iPad|iPhone|iPod/.test(navigator.userAgent)))
   {
-    window.location.replace(url);
-  }
-  else
-  {
-    const name = navigator.userAgent.includes("Instagram") ? "Instagram" : "Facebook";
-
-    document.querySelector('.upload').innerHTML = "<h2 style='text-decoration:line-through black 3px'>Upload an image</h2><p class='orange' style='font-size:smaller; word-break: normal'>You are currently using " + name + "'s in-app browser</p><p style='word-break: normal'>" + name +"'s in-app browser has a lot of limitations and lesser features so this site does not work on on this browser.<br><br>Kindly open this site in your mobile's native browser (chrome/safari/etc) by clicking on the three dots &nbsp;<b style='font-size:larger'>&#8942;</b>&nbsp; in the top right corner or,<br><br>click on <b id='txt' style='color:lightskyblue; text-decoration:underline'>https://asciiiart.vercel.app/</b> this link to copy and then head over to your mobile's native browser and paste it to open this site.</p><p class='orange' id='copy' style='font-size:smaller; text-align:center'></p>";
-
-    $("#txt").on("click", function (event) {
-      var $temp = $("<input>");
-      $("body").append($temp);
-      $temp.val($("#txt").html()).select();
-      document.execCommand("copy");
-      $temp.remove();
-      $("#copy").html("Link copied!");
-    });
+    window.location.replace('https://openinapp.co/ascii');
   }
 }
 
