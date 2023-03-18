@@ -30,7 +30,7 @@ button.addEventListener('click', () => {
         link.download = "ascii.jpeg";
         link.href = canvas.toDataURL("image/jpeg", 1.0);
         link.click();
-        document.body.style.backgroundImage = "url(/static/background.jpg)";
+        document.body.style.setProperty('background-image', 'url(/static/background.jpg)');
         button.disabled = false;
         button.innerText = "Save as jpeg";
       }
