@@ -32,7 +32,7 @@ button.addEventListener('click', () => {
         link.click();
         button.disabled = false;
         button.innerText = "Save as jpeg";
+        location.reload();
       }
     ); 
-    document.body.style.setProperty('background-image', 'url(/static/background.jpg) !important');
 });
