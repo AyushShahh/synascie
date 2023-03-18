@@ -14,7 +14,7 @@
 // })
 
 // Get node, button and set scale
-var node = document.getElementById('art');
+var node = document.getElementById('art').cloneNode(true);
 var button = document.getElementById('save');
 
 // Add event listener and use dom-to-image to convert div to canvas
