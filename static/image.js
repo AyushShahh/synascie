@@ -24,8 +24,8 @@ button.addEventListener('click', () => {
     button.innerText = "Generating...";
     domtoimage.toJpeg(node, {
         // increase width by scale
-        width: node.clientWidth * scale + 'px',
-        height: node.clientHeight * scale + 'px',
+        width: node.clientWidth * scale,
+        height: node.clientHeight * scale,
         quality: 1,
         style: {
             transform: 'scale('+scale+')',
