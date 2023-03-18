@@ -14,14 +14,15 @@
 // })
 
 // Get node, button and set scale
-var node = document.getElementById('art').cloneNode(true);
+var node = document.getElementById('art');
 var button = document.getElementById('save');
 
 // Add event listener and use dom-to-image to convert div to canvas
 button.addEventListener('click', () => {
     button.disabled = true;
     button.innerText = "Generating...";
-    html2canvas(node, {
+    var nodeClone = node.cloneNode(true);
+    html2canvas(nodeClone, {
         scale: 5, // set the scale factor to 5
         backgroundColor: null, // set background color to transparent
       }).then(function(canvas) {
