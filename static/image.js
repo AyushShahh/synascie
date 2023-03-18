@@ -14,7 +14,7 @@
 // })
 
 // Get node, button and set scale
-var node = document.querySelector('art');
+var node = document.getElementById('a');
 var scale = 5;
 var button = document.getElementById('save');
 
