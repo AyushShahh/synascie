@@ -28,6 +28,7 @@ button.addEventListener('click', () => {
         height: node.clientHeight * scale,
         quality: 1,
         style: {
+            'object-fit': 'contain',
             transform: 'scale('+scale+')',
             transformOrigin: 'top left'
         }})
