@@ -22,10 +22,12 @@ var button = document.getElementById('save');
 button.addEventListener('click', () => {
     button.disabled = true;
     button.innerText = "Generating...";
+    node.style.width = node.clientWidth * scale + 'px';
+    node.style.height = node.clientHeight * scale + 'px';
     domtoimage.toJpeg(node, {
         // increase width by scale
-        width: node.clientWidth * scale + 'px',
-        height: node.clientHeight * scale + 'px',
+        width: node.style.width,
+        height: node.style.height,
         quality: 1,
         })
         // convert canvas to dataurl & create and click link to download image
