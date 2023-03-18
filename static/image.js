@@ -14,31 +14,24 @@
 // })
 
 // Get node, button and set scale
-var node = document.getElementById('a');
-var scale = 5;
+var node = document.getElementById('art');
 var button = document.getElementById('save');
 
 // Add event listener and use dom-to-image to convert div to canvas
 button.addEventListener('click', () => {
     button.disabled = true;
     button.innerText = "Generating...";
-    domtoimage.toJpeg(node, {
-        // increase width by scale
-        width: node.clientWidth * scale,
-        height: node.clientHeight * scale,
-        quality: 1,
-        style: {
-            transform: 'scale('+scale+')',
-            transformOrigin: 'top left'
-        }})
-        // convert canvas to dataurl & create and click link to download image
-        .then(function (dataUrl) {
-            var link = document.createElement('a');
-            link.download = 'ascii.jpeg';
-            link.href = dataUrl;
-            link.click();
-            button.disabled = false;
-            button.innerText = "Save as jpeg";
-        }
-    );
+    html2canvas(node, {
+        scale: 5, // set the scale factor to 5
+        backgroundColor: null, // set background color to transparent
+      }).then(function(canvas) {
+        // convert canvas to data URL and download as JPEG
+        var link = document.createElement("a");
+        link.download = "ascii.jpg";
+        link.href = canvas.toDataURL("image/jpeg", 1.0);
+        link.click();
+        button.disabled = false;
+        button.innerText = "Save as jpeg";
+      }
+    ); 
 });
