@@ -26,11 +26,11 @@ button.addEventListener('click', () => {
         backgroundColor: null, // set background color to transparent
       }).then(function(canvas) {
         // convert canvas to data URL and download as JPEG
-        document.body.style.backgroundImage = "url(/static/background.jpg)";
         var link = document.createElement("a");
         link.download = "ascii.jpeg";
         link.href = canvas.toDataURL("image/jpeg", 1.0);
         link.click();
+        document.body.style.backgroundImage = "url(/static/background.jpg)";
         button.disabled = false;
         button.innerText = "Save as jpeg";
       }
