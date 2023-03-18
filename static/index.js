@@ -11,10 +11,10 @@ else {
   document.getElementById('browser-resolution').value = screen.width + "x" + screen.height;
 
   // Remove prev file on input
-  var fileInp = document.getElementById("file");
-  fileInp.addEventListener("click", () => {
-    fileInp.value = "";
-  });
+  // var fileInp = document.getElementById("file");
+  // fileInp.addEventListener("click", () => {
+  //   fileInp.value = "";
+  // });
 
   // Get size of image and set its value and preview for rotation
   function getAndPostSize(event) {
