@@ -29,8 +29,8 @@ button.addEventListener('click', () => {
         var link = document.createElement("a");
         link.download = "ascii.jpeg";
         link.href = canvas.toDataURL("image/jpeg", 1.0);
+        document.body.style.setProperty('background-image', 'url(/static/background.jpg) !important');
         link.click();
-        document.body.style.backgroundImage = "url(/static/background.jpg)";
         button.disabled = false;
         button.innerText = "Save as jpeg";
       }
