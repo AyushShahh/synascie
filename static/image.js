@@ -15,7 +15,7 @@
 
 // Get node, button and set scale
 var node = document.getElementById('art');
-var scale = 5;
+var scale = 3;
 var button = document.getElementById('save');
 
 // Add event listener and use dom-to-image to convert div to canvas
@@ -28,7 +28,6 @@ button.addEventListener('click', () => {
         height: node.clientHeight * scale,
         quality: 1,
         style: {
-            'object-fit': 'contain',
             transform: 'scale('+scale+')',
             transformOrigin: 'top left'
         }})
