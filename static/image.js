@@ -28,11 +28,11 @@ button.addEventListener('click', () => {
         // convert canvas to data URL and download as JPEG
         var link = document.createElement("a");
         link.download = "ascii.jpeg";
+        location.reload();
         link.href = canvas.toDataURL("image/jpeg", 1.0);
         link.click();
         button.disabled = false;
         button.innerText = "Save as jpeg";
-        location.reload();
       }
     ); 
 });
