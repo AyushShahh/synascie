@@ -13,16 +13,21 @@
 //     })
 // })
 
-// Get node, button and set scale
+// Get node and button
 var node = document.getElementById('art');
 var button = document.getElementById('save');
 
-// Add event listener and use dom-to-image to convert div to canvas
+// Add event listener and use html2canvas to convert div to canvas
 button.addEventListener('click', () => {
     button.disabled = true;
     button.innerText = "Generating...";
-    html2canvas(node, {
-        scale: 5 // set the scale factor to 5
+    var nodeClone = node.cloneNode(true);
+    var tempContainer = document.createElement('div');
+    tempContainer.appendChild(nodeClone);
+    document.body.appendChild(tempContainer);
+    html2canvas(tempContainer, {
+        scale: 5, // set the scale factor to 5
+        backgroundColor: null, // set background color to transparent
       }).then(function(canvas) {
         // convert canvas to data URL and download as JPEG
         var link = document.createElement("a");
@@ -31,6 +36,7 @@ button.addEventListener('click', () => {
         link.click();
         button.disabled = false;
         button.innerText = "Save as jpeg";
+        document.body.removeChild(tempContainer);
       }
     ); 
 });
