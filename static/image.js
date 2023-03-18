@@ -15,7 +15,7 @@
 
 // Get node, button and set scale
 var node = document.getElementById('art');
-var scale = 3;
+var scale = 5;
 var button = document.getElementById('save');
 
 // Add event listener and use dom-to-image to convert div to canvas
@@ -24,13 +24,10 @@ button.addEventListener('click', () => {
     button.innerText = "Generating...";
     domtoimage.toJpeg(node, {
         // increase width by scale
-        width: node.clientWidth * scale,
-        height: node.clientHeight * scale,
+        width: node.clientWidth * scale + 'px',
+        height: node.clientHeight * scale + 'px',
         quality: 1,
-        style: {
-            transform: 'scale('+scale+')',
-            transformOrigin: 'top left'
-        }})
+        })
         // convert canvas to dataurl & create and click link to download image
         .then(function (dataUrl) {
             var link = document.createElement('a');
