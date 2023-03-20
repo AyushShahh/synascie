@@ -1,7 +1,5 @@
 # ASCII Art <img src="static/favicons/favicon-32x32.png">
-This was my Harvard's CS50x 2022 final project submission. I have continued to work on and improved this project after that.  
-
-Video demo: [Watch on YouTube](https://www.youtube.com/watch?v=kvW-cWD7sYY)
+This was my Harvard's CS50x 2022 final project submission. I have continued to work on and improved this project after that.
 
 <img src="static/asciidog.JPG" height=300>
 
@@ -39,15 +37,15 @@ If you would like to view this local site from other device(s), navigate to `htt
 - CSS
 - JavaScript
 - jQuery
-- Jinja templating
+- Jinja
 
 ## Libraries Used
 - PIL - For python image processing
 - Flask - For using flask features and jinja templating
 - pillow_heif - Adding support for heic and heif images
 - flask_sessions - For web browser sessions
-- DOM to Image - To capture DOM snapshot using JavaScript
-- Exif.js - For reading EXIF meta data from image files
+- html2canvas - To capture DOM snapshot using JavaScript
+- Exif.js - For reading EXIF metadata from image files
 
 # License
 This project is licensed under the **MIT License**. View the [`LICENSE`](https://github.com/AyushShahh/ASCII-Art/blob/main/LICENSE) file for details.

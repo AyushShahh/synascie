@@ -165,6 +165,7 @@ input[type=radio], img, button, #file {
 .options {
     color: white;
     text-align: center;
+    background-color:rgba(19, 19, 19, 0.25);
 }
 
 .end {
