@@ -1,8 +1,8 @@
 from PIL import Image
 from math import floor
 from pillow_heif import register_heif_opener
-from os import remove, listdir, path
-from time import time
+# from os import remove, listdir, path
+# from time import time
 
 
 # used to open and work with helf/heic images in PIL
@@ -87,17 +87,17 @@ def map(value, start1, stop1, start2, stop2):
     return floor(mappedValue)
 
 # Remove sessions in /tmp/ folder
-def remove_sessions():
-    dir_path = '/tmp/'
+# def remove_sessions():
+#     dir_path = '/tmp/'
 
     # Get the current time in seconds
-    current_time = time()
+    # current_time = time()
 
     # Iterate through all files in the /tmp/ folder
-    for file_name in listdir(dir_path):
-        file_path = path.join(dir_path, file_name)
+    # for file_name in listdir(dir_path):
+    #     file_path = path.join(dir_path, file_name)
         
         # Check and delete file if it has no extension and was created more than 10 mins ago
-        if path.isfile(file_path) and '.' not in file_name:
-            if current_time - path.getctime(file_path) > 600:
-                remove(file_path)
+        # if path.isfile(file_path) and '.' not in file_name:
+        #     if current_time - path.getctime(file_path) > 600:
+        #         remove(file_path)
