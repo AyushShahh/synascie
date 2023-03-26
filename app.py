@@ -1,6 +1,6 @@
 from flask import Flask, redirect, render_template, request, session
 from flask_session import Session
-from main import open, resize, grayscale, ascii, size, new_dims, remove_sessions, rotate
+from main import open, resize, grayscale, ascii, size, new_dims, rotate #, remove_sessions
 
 
 # Allowed image extensions
@@ -16,7 +16,7 @@ app.config["SESSION_FILE_DIR"] = "/tmp/"
 Session(app)
 
 # Max session file limit for /tmp/ folder
-FILES = 100
+# FILES = 100
 
 
 # List of character sets
@@ -46,7 +46,7 @@ def index():
     if request.method == "POST":
 
         # Add global file variable
-        global FILES
+        # global FILES
 
         # Check if size is submitted through form
         if 'size' not in request.form:
@@ -140,10 +140,10 @@ def index():
         if "ascii" not in session:
             session['ascii'] = []
             session['invascii'] = []
-            FILES -= 1
-            if FILES == 0:
-                FILES = 100
-                remove_sessions()
+            # FILES -= 1
+            # if FILES == 0:
+            #     FILES = 100
+            #     remove_sessions()
 
         # If not a new user, clear ascii art from previous image
         else:
