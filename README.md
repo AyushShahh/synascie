@@ -1,9 +1,12 @@
-# ASCII Art <img src="static/favicons/favicon-32x32.png">
+# Synascie <img src="static/favicons/favicon-32x32.png">
 This was my Harvard's CS50x 2022 final project submission. I have continued to work on and improved this project after that.
+
+Synascie name is inspired from the word `synapse` which means
+> The points of contact between neurons where information is passed from one neuron to the next.
 
 <img src="static/asciidog.JPG" height=300>
 
-ASCII Art is a website that converts any image into ASCII character art. Basically what it means is that it generates an image made of ASCII characters (characters like !@#$%^&*_-+= etc) based on the character set you have chosen.
+Synascie converts any image into ASCII character art. Basically what it means is that it generates an image made of ASCII characters (characters like !@#$%^&*_-+= etc) based on the character set you have chosen.
 
 # Getting started
 ### Prerequisites
@@ -12,9 +15,9 @@ In order to use and work on this project, you should have atleast python 3.9 ins
 ### Installation
 Clone this repository
 ``` terminal
-git clone https://github.com/AyushShahh/ASCII-Art.git
+git clone https://github.com/AyushShahh/synascie.git
 ```
-Change your working directory to ASCII-Art and run this command to install required modules
+Change your working directory to synascie and run this command to install required modules
 ```terminal
 pip install -r requirements.txt
 ```
@@ -48,4 +51,4 @@ If you would like to view this local site from other device(s), navigate to `htt
 - Exif.js - For reading EXIF metadata from image files
 
 # License
-This project is licensed under the **MIT License**. View the [`LICENSE`](https://github.com/AyushShahh/ASCII-Art/blob/main/LICENSE) file for details.
+This project is licensed under the **MIT License**. View the [`LICENSE`](https://github.com/AyushShahh/synascie/blob/main/LICENSE) file for details.
