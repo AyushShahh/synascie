@@ -15,14 +15,17 @@ body {
     margin: 0;
     text-align: left;
 }
-
+img.img-enlargeable {
+    height: auto;
+    width: 33%;
+}
 .art {
     width: 90%;
     margin: 0 auto;
     margin-top: 10px;
     background-color: #000;
     padding: 5px;
-    font-size: 3px;
+    font-size: 0.2vw;
     line-height: 0pt;
     text-align: center;
     font-family: 'Courier';
@@ -72,7 +75,7 @@ body {
 }
 
 .section {
-    width: 95%;
+    /* width: 95%; */
     margin: auto;
     border-radius: 10px;
     margin-top: 15px;
