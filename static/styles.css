@@ -18,19 +18,28 @@ body {
 img.img-enlargeable {
     height: auto;
     width: 33%;
+    /* min-width: 300px; */
+    /* display: flex; */
 }
 .art {
-    width: 90%;
+    /* width: 90%; */
     margin: 0 auto;
     margin-top: 10px;
     background-color: #000;
     padding: 5px;
-    font-size: 0.2vw;
+    font-size: 3px;         /*  0.2vw; */
     line-height: 0pt;
     text-align: center;
     font-family: 'Courier';
     color: #fff;
     /* font-weight: bold; */
+}
+#art{
+    overflow-x: scroll;
+    
+}
+#art::-webkit-scrollbar {
+    display: none;
 }
 
 .align button {
@@ -222,11 +231,6 @@ input[type=radio], img, button, #file {
         width: 330px !important;
     }
 
-    .section img {
-        width: 100px;
-        height: auto;
-    }
-
     #file {
         width: 80%;
     }
@@ -237,5 +241,12 @@ input[type=radio], img, button, #file {
 
     .radio {
         font-size: 15px;
+    }
+    .align{
+        flex-direction: column;
+        align-items: center;
+    }
+    img.img-enlargeable{
+        width: 80%;
     }
 }
